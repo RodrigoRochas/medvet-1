@@ -1,0 +1,97 @@
+body{
+    margin: 0px;
+    background-image: url("../Imagens/Background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+#esquerda{
+    width: 70%;
+    height: 1px;
+    float: left
+}
+
+#direita{
+    width: 30%;
+    min-height: 750px;
+    height: auto;
+    background-color: #ffffff;
+    float: left;
+}
+
+#boas_vindas{
+    height: 150px;
+    width: 100%;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#butons{
+    height: 110px;
+    width: 296px;
+
+}
+
+#form{
+    height: 250px;
+    width: 100%;
+}
+
+input[type=text], input[type=email], input[type=password]{
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #7ad5ef;
+    margin-left: 10%;
+}
+
+input[type='submit']{
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 7px 2%;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #008CBA;
+    float: left;
+}
+
+input[type='submit']:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+#login{
+    height: 250px;
+    width: 100%;
+}
+
+#novo_usuario{
+    height: 250px;
+    width: 100%;    
+    display: none;
+
+}
+
+#login p{
+    text-align: center;
+}
+
+#novo_usuario p{
+    text-align: center;
+}
+
+footer{
+    height: 50px;
+    width: 100%;
+    text-align: center;
+}
