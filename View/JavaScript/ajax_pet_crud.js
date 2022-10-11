@@ -6,7 +6,7 @@ function obterAutenticacao(){
 
     $.post(rota, {
 
-        classe:"medico",
+        classe:"pet",
         acao:"obterAutenticacao"
 
     }).done(function(dados){
@@ -22,29 +22,23 @@ function obterAutenticacao(){
 }
 
 function inserir(){
-
+    
     $.post(rota, {
 
-        classe:"medico",
+        classe:"pet",
         acao:"inserir",
         nome:$("#txt_nome").val(),
-        cpf:$("#txt_cpf").val(),
+        idPorte:$("#slt_porte").val(),
         dtNascimento:$("#txt_dt_nasc").val(),
         // sexo:$("#rdo_sexo").val(),
-        email:$("#txt_email").val(),
-        celular:$("#txt_celular").val(),
-        logradouro:$("#txt_logradouro").val(),
-        numero:$("#txt_numero").val(),
-        bairro:$("#txt_bairro").val(),
-        cep:$("#txt_cep").val(),
-        cidade:$("#txt_municipio").val(),
-        estado:$("#txt_uf").val(),
-        senha:$("#txt_senha").val(),
-        confirmar:$("#txt_confirmar").val()
+        idCliente:$("#slt_cliente").val(),
+        caminho_imagem:$("#txt_imagem").val(),
+        
 
     }).done(function(dados){
 
-        alert("CADASTRADO COM SUCESSO");
+        alert(dados);
+//        alert("CADASTRADO COM SUCESSO");
 
         obterTodos();
 
@@ -56,12 +50,56 @@ function obterTodos(){
 
     $.post(rota, {
 
-        classe:"medico",
+        classe:"pet",
         acao:"obterTodos"
 
     }).done(function(dados){
 
         $("#table_content").html(dados);
+
+    });
+
+}
+
+
+function obterPorte(){
+
+    $.post(rota, {
+
+        classe:"porte",
+        acao:"obterTodos"
+
+    }).done(function(dados){
+
+        // alert(dados);
+
+        $("#slt_porte").html(dados);
+
+    });
+
+}
+
+
+function obterClientes(){
+
+    $.post(rota, {
+
+        classe:"cliente",
+        acao:"listaClientes"
+
+    }).done(function(dados){
+
+        let clientes = JSON.parse(dados);
+        
+        let option = "<option value='0'>Selecione o Estado</option>";
+
+        for(let i = 0; i < clientes.length; i++){
+
+            option += "<option value='"+clientes[i].id+"'>"+clientes[i].nome+"</option>";
+
+        }
+
+        $("#slt_cliente").html(option);
 
     });
 
@@ -93,28 +131,21 @@ function obterUm(){
     
     $.post(rota, {
 
-        classe:"medico",
+        classe:"pet",
         acao:"obterUm",
-        id:$("#id_medico").val(),
+        id:$("#id_pet").val(),
         
     }).done(function(dados){
 
-        let medico = JSON.parse(dados);
-
-        $("#txt_nome").val(medico["nome"]);
-        $("#txt_cpf").val(medico["cpf"]);
-        $("#txt_dt_nasc").val(medico["data_nascimento"]);
-        // $("#rdo_sexo").val(medico["sexo"]);
-        $("#txt_email").val(medico["email"]);
-        $("#txt_celular").val(medico["telefone"]);
-        $("#txt_logradouro").val(medico["logradouro"]);
-        $("#txt_numero").val(medico["numero"]);
-        $("#txt_bairro").val(medico["bairro"]);
-        $("#txt_cep").val(medico["cep"]);
-        $("#txt_uf").val(medico["estado"]);
-        $("#txt_municipio").val(medico["cidade"]);
-        $("#txt_senha").val(medico["senha"]);
-        $("#txt_confirmar").val(medico["senha"]);
+        let pet = JSON.parse(dados);
+        alert(dados)
+        
+        $("#txt_nome").val(pet["nome"]),
+        $("#slt_porte").val(pet["idPorte"]),
+        $("#txt_dt_nasc").val(pet["data_nascimento"]),
+        $("#slt_cliente").val(pet["idCliente"]),
+        $("#txt_imagem").val(pet["caminho_imagem"]),
+        
         
         modo = "atualizar";
 
@@ -126,9 +157,9 @@ function atualizar(){
     
     $.post(rota, {
 
-        classe:"medico",
+        classe:"pet",
         acao:"atualizar",
-        idMedico: $("#id_medico").val(),
+        idCliente: $("#id_cliente").val(),
         nome:$("#txt_nome").val(),
         cpf:$("#txt_cpf").val(),
         dtNascimento:$("#txt_dt_nasc").val(),
@@ -147,20 +178,20 @@ function atualizar(){
         
         modo = "inserir";
         alert('ALTERADO COM SUCESSO!!');
-        window.location.href = 'cadastro_medico.php';
+//        window.location.href = 'cadastro_medico.php';
 
 
     });
 
 }
 
-function remover(idMedico){
+function remover(idPet){
     
     $.post(rota, {
 
-        classe:"medico",
+        classe:"pet",
         acao:"remover",
-        idMedico: idMedico
+        idPet: idPet
         
     }).done(function(dados){
         alert('REMOVIDO COM SUCESSO!!')
@@ -175,7 +206,8 @@ $(document).ready(function(){
     // obterAutenticacao();
 
     obterTodos();
-
+    obterPorte();
+    obterClientes();
 
     $("#btn_salvar").click(function(){
 

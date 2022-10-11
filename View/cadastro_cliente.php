@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>MedVet | Cadastro de Médico</title>
+        <title>MedVet | Cadastro de Cliente</title>
 <!--        <link type="text/css" rel="stylesheet" href="CSS/style.css">-->
         <link type="text/css" rel="stylesheet" href="CSS/cadastro_medico_style.css">
         <script src="JavaScript/jquery-3.3.1.js" charset="utf-8"></script>
-        <script src="JavaScript/ajax_medico_crud.js" charset="utf-8"></script>
+        <script src="JavaScript/ajax_cliente_crud.js" charset="utf-8"></script>
         <script>
             $(document).ready(function(){
                 obterUm();
@@ -45,9 +45,9 @@
                 <?php require_once("menu.php") ?>
                 <div id="content">
                     <div class="title_content" style="float:none;">
-                        Cadastro de Médicos
+                        Cadastro de Cliente
                     </div>
-                    <input id="id_medico" type="hidden" value="<?php echo $_GET['id'];?>">
+                    <input id="id_cliente" type="hidden" value="<?php echo @$_GET['id'];?>">
                     <div class="line_input">
                         <div class="content_input">
                             <div class="title_input">

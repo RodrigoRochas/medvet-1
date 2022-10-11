@@ -6,7 +6,7 @@ function obterAutenticacao(){
 
     $.post(rota, {
 
-        classe:"medico",
+        classe:"cliente",
         acao:"obterAutenticacao"
 
     }).done(function(dados){
@@ -25,7 +25,7 @@ function inserir(){
 
     $.post(rota, {
 
-        classe:"medico",
+        classe:"cliente",
         acao:"inserir",
         nome:$("#txt_nome").val(),
         cpf:$("#txt_cpf").val(),
@@ -34,7 +34,7 @@ function inserir(){
         email:$("#txt_email").val(),
         celular:$("#txt_celular").val(),
         logradouro:$("#txt_logradouro").val(),
-        numero:$("#txt_numero").val(),
+        numero:$("#txt_numero").val(),  
         bairro:$("#txt_bairro").val(),
         cep:$("#txt_cep").val(),
         cidade:$("#txt_municipio").val(),
@@ -56,7 +56,7 @@ function obterTodos(){
 
     $.post(rota, {
 
-        classe:"medico",
+        classe:"cliente",
         acao:"obterTodos"
 
     }).done(function(dados){
@@ -93,9 +93,9 @@ function obterUm(){
     
     $.post(rota, {
 
-        classe:"medico",
+        classe:"cliente",
         acao:"obterUm",
-        id:$("#id_medico").val(),
+        id:$("#id_cliente").val(),
         
     }).done(function(dados){
 
@@ -126,9 +126,9 @@ function atualizar(){
     
     $.post(rota, {
 
-        classe:"medico",
+        classe:"cliente",
         acao:"atualizar",
-        idMedico: $("#id_medico").val(),
+        idMedico: $("#id_cliente").val(),
         nome:$("#txt_nome").val(),
         cpf:$("#txt_cpf").val(),
         dtNascimento:$("#txt_dt_nasc").val(),
@@ -147,20 +147,20 @@ function atualizar(){
         
         modo = "inserir";
         alert('ALTERADO COM SUCESSO!!');
-        window.location.href = 'cadastro_medico.php';
+        window.location.reload();
 
 
     });
 
 }
 
-function remover(idMedico){
+function remover(idCliente){
     
     $.post(rota, {
 
-        classe:"medico",
+        classe:"cliente",
         acao:"remover",
-        idMedico: idMedico
+        idCliente: idCliente
         
     }).done(function(dados){
         alert('REMOVIDO COM SUCESSO!!')
@@ -175,8 +175,7 @@ $(document).ready(function(){
     // obterAutenticacao();
 
     obterTodos();
-
-
+        
     $("#btn_salvar").click(function(){
 
         if(modo == "atualizar"){
