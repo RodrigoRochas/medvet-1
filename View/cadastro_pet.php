@@ -1,3 +1,28 @@
+<?php
+
+    $target_dir = "uploads/";
+    @$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+      $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+      if($check !== false) {
+        echo "File is an image - " . $check["mime"] . ".";
+        $uploadOk = 1;
+      } else {
+        echo "File is not an image.";
+        $uploadOk = 0;
+      }
+        
+       if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+      } else {
+        echo "Sorry, there was an error uploading your file.";
+      }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -44,60 +69,66 @@
             <form method="POST" enctype="multipart/form-data">
             <div id="main_content">
                 <?php require_once("menu.php") ?>
-                <div id="content">
-                    <div class="title_content" style="float:none;">
-                        Cadastro de Pet
-                    </div>
-                    <input id="id_pet" type="hidden" value="<?php echo @$_GET['id'];?>">
-                    <div class="line_input">
-                        <div class="content_input">
-                            <div class="title_input">
-                                Nome:
-                            </div>
-                            <input type="text" name="txt_nome" id="txt_nome" placeholder="Digite o nome do médico." class="input_text">
+                <form action="cadastro_pet.php" method="post" enctype="multipart/form-data">
+                    <div id="content">
+                        <div class="title_content" style="float:none;">
+                            Cadastro de Pet
                         </div>
-                        <div class="content_input" style="width:320px;">
-                            <div class="title_input">
-                                Porte:
+                        <input id="id_pet" type="hidden" value="<?php echo @$_GET['id'];?>">
+                        <div class="line_input">
+                            <div class="content_input">
+                                <div class="title_input">
+                                    Nome:
+                                </div>
+                                <input type="text" name="txt_nome" id="txt_nome" placeholder="Digite o nome do pet." class="input_text">
                             </div>
-                            <select name="slt_porte" id="slt_porte" class="input_select">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="line_input">
-                        <div class="content_input" style="width: 250px;">
-                            <div class="title_input" style="width: 240px;">
-                                Data de Nascimento
+                            <div class="content_input" style="width:320px;">
+                                <div class="title_input">
+                                    Porte:
+                                </div>
+                                <select name="slt_porte" id="slt_porte" class="input_select">
+                                </select>
                             </div>
-                            <input type="date" name="txt_dt_nasc" id="txt_dt_nasc" placeholder="Ex: 22/09/18" class="input_text" style="width: 200px;">
                         </div>
-                        <div class="content_input" style="width:320px;">
-                            <div class="title_input" style="width: 240px;">
-                                Cliente Responsavel:
+                        <div class="line_input">
+                            <div class="content_input" style="width: 250px;">
+                                <div class="title_input" style="width: 240px;">
+                                    Data de Nascimento
+                                </div>
+                                <input type="date" name="txt_dt_nasc" id="txt_dt_nasc" placeholder="Ex: 22/09/18" class="input_text" style="width: 200px;">
                             </div>
-                            <select name="slt_cliente" id="slt_cliente" class="input_select">
-                            </select>
-                        </div>
-                    </div>
-                    <div class="line_input">
-                        <div class="content_input">
-                            <div class="title_input">
-                                Imagem
+                            <div class="content_input" style="width:320px;">
+                                <div class="title_input" style="width: 240px;">
+                                    Cliente Responsável:
+                                </div>
+                                <select name="slt_cliente" id="slt_cliente" class="input_select">
+                                </select>
                             </div>
-                            <input type="file" name="txt_imagem" id="txt_imagem" class="input_text">
                         </div>
-                    </div>
-                    <div class="line_input">
-                        <button name="btn_salvar" id="btn_salvar" class="buttons" style="margin-left:830px;">Salvar</button>
-                        <a href="adm_medico.php">
-                            <button name="btn_cancelar" class="buttons">Cancelar</button>
-                        </a>
-                    </div>
-<!--
-                    <table id="table_content">
-                    </table>
--->
-                </div>
+                        <div class="line_input">
+                            <div class="content_input">
+                                <div class="title_input">
+                                    Imagem
+                                </div>
+                                <input type="file" name="fileToUpload" id="fileToUpload">
+<!--                                <input type="submit" value="Upload Image" name="submit">-->
+                            </div>
+                        </div>
+                        <div class="line_input">
+                            <button type="submit" name="submit" id="btn_salvar" class="buttons" style="margin-left:830px;">Salvar</button>
+                            <a href="adm_medico.php">
+                                <button name="btn_cancelar" class="buttons">Cancelar</button>
+                            </a>
+                        </div>
+                        <div >
+                            <img style='height:500px;' src="" alt="">
+                        </div>
+    <!--    
+                        <table id="table_content">
+                        </table>
+    -->
+                    </div>                
+                </form>
             </div>
             </form>
         </div>

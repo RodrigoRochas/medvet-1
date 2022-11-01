@@ -1,0 +1,32 @@
+.registro{
+    height: 450px;
+    width: 350px;
+    background-color: cadetblue;
+    float: left;
+    margin-left: 5px;
+}
+
+.imagem_animal{
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagem_animal img{
+    width: 100%;
+    height: auto;
+}
+
+.nome_animal img:hover{
+    cursor: pointer;
+}
+
+.nome_animal{
+    margin-top: 20px;
+    width: 300px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+}

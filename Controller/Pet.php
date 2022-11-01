@@ -62,23 +62,37 @@
 
             $listaPets = $petDAO->obterTodos();
 
-            echo('<tr id="table_title">');
-            echo('<td>Nome</td>');
-            echo('<td>Data Nascimento</td>');
-            echo('<td>Opções</td>');
-            echo('</tr>');
+//            echo('<tr id="table_title">');
+//            echo('<td>Nome</td>');
+//            echo('<td>Nome</td>');
+//            echo('<td>Data Nascimento</td>');
+//            echo('<td>Opções</td>');
+//            echo('</tr>');
 
             foreach ($listaPets as $pet) {
-
-                echo('<tr>');
-                echo('<td class="column_content">'.$pet->getNome().'</td>');
-                echo('<td class="column_content">'.$pet->getDtNascimento().'</td>');
-                echo('<td class="column_content">');
-                echo('<img src="Imagens/excluir.png" alt="Excluir Funcionário" style="margin:0px;" onclick="remover('.$pet->getId().')">');
-                echo('<a href="cadastro_pet.php?id='.$pet->getId().'"><img src="Imagens/editar.png" alt="Editar Funcionário" style="width:40px;height:40px;margin-left:10px;"></a>');
-//                echo('<img src="Imagens/check_true.png" alt="Ativar/Desativar Funcionário" onclick="atualizarSituacao('.$pet->getId().')">');
-                echo('</td>');
-                echo('</tr>');
+                echo('<div class="registro">
+                        <div class="imagem_animal" >
+                            <img src="uploads/'.$pet->getCaminhoImagem().'" alt="">
+                        </div>
+                        <div class="nome_animal">
+                            <a href="cadastro_pet.php?id='.$pet->getId().'">
+                                <img src="Imagens/editar.png" alt="Editar Pet" style="width:40px;height:40px;margin-left:10px;">
+                            </a>
+                            
+                            <img src="Imagens/excluir.png" alt="Excluir Pet" style="width:40px;height:40px;margin-left:10px;margin:0px;" onclick="remover('.$pet->getId().')">
+                        </div>
+                    </div>');
+                
+//                echo('<tr>');
+//                echo('<td class="column_content">'.$pet->getNome().'</td>');
+//                echo('<td class="column_content">'.$pet->getCaminhoImagem().'</td>');
+//                echo('<td class="column_content">'.$pet->getDtNascimento().'</td>');
+//                echo('<td class="column_content">');
+//                echo('<img src="Imagens/excluir.png" alt="Excluir Funcionário" style="margin:0px;" onclick="remover('.$pet->getId().')">');
+//                echo('<a href="cadastro_pet.php?id='.$pet->getId().'"><img src="Imagens/editar.png" alt="Editar Funcionário" style="width:40px;height:40px;margin-left:10px;"></a>');
+////                echo('<img src="Imagens/check_true.png" alt="Ativar/Desativar Funcionário" onclick="atualizarSituacao('.$pet->getId().')">');
+//                echo('</td>');
+//                echo('</tr>');
 
             }
 

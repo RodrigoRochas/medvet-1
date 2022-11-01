@@ -23,6 +23,9 @@ function obterAutenticacao(){
 
 function inserir(){
     
+    const image = $("#fileToUpload").val();
+    const words = image.split("\\");
+    
     $.post(rota, {
 
         classe:"pet",
@@ -32,7 +35,7 @@ function inserir(){
         dtNascimento:$("#txt_dt_nasc").val(),
         // sexo:$("#rdo_sexo").val(),
         idCliente:$("#slt_cliente").val(),
-        caminho_imagem:$("#txt_imagem").val(),
+        caminho_imagem:words[2],
         
 
     }).done(function(dados){
@@ -91,7 +94,7 @@ function obterClientes(){
 
         let clientes = JSON.parse(dados);
         
-        let option = "<option value='0'>Selecione o Estado</option>";
+        let option = "<option value='0'>Selecione o cliente responsável</option>";
 
         for(let i = 0; i < clientes.length; i++){
 
@@ -103,28 +106,6 @@ function obterClientes(){
 
     });
 
-}
-
-function consultaCep() {
-                
-    var cep = $("#txt_cep").val();
-
-    if(cep.length > 7){
-
-        var url = "https://viacep.com.br/ws/"+cep+"/json/";
-
-        $.getJSON(url, function(dados){
-
-            if (dados.erro != 'true') {
-                $("#txt_logradouro").val(dados.logradouro);
-                $("#txt_bairro").val(dados.bairro);
-                $("#txt_municipio").val(dados.localidade);
-                $("#txt_uf").val(dados.uf);
-            }else{
-                alert('CEP INVÁLIDO');
-            }
-        });
-    }
 }
 
 function obterUm(){
@@ -140,11 +121,22 @@ function obterUm(){
         let pet = JSON.parse(dados);
         alert(dados)
         
+//        var elt = document.getElementById("slt_cliente");
+//        var opt = elt.getElementsByTagName("option");
+//        for(var i = 0; i < opt.length; i++) {
+//          if(opt[i].value == cod) {
+//            alert(opt[i].text);
+//            elt.value = cod;
+//          }
+//        }
+        
         $("#txt_nome").val(pet["nome"]),
         $("#slt_porte").val(pet["idPorte"]),
         $("#txt_dt_nasc").val(pet["data_nascimento"]),
         $("#slt_cliente").val(pet["idCliente"]),
         $("#txt_imagem").val(pet["caminho_imagem"]),
+        $("#pet").attr("src","uploads/"+pet["caminho_imagem"]),
+        $("#pet").val(pet["caminho_imagem"]),
         
         
         modo = "atualizar";

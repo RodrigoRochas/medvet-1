@@ -60,6 +60,7 @@
                 $pet->setIdPorte($resultSet["id_porte"]);
                 $pet->setIdCliente($resultSet["id_cliente"]);
                 $pet->setDtNascimento($resultSet["data_nascimento"]);
+                $pet->setCaminhoImagem($resultSet["caminho_imagem"]);
 
                 $listaPets[] = $pet;
 
