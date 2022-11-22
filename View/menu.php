@@ -1,29 +1,13 @@
+
 <nav>
-    <!--div id="nav_content">
-        <div class="itens_menu">
-            <div class="item_logo">
-                <img src="Imagens/adm_logo.png" alt="Administracão">
-            </div>
-            <div class="item_text">
-                Administracão
-            </div>
-        </div>
+    <ul class="snip1168">
+        <li class="current"><a href="#" data-hover="Pets">Pets</a></li>
+        <li><a href="#" data-hover="Meu perfil">Meu perfil</a></li>
+        <li><a href="#" data-hover="Blog">Blog</a></li>
+        <li><a href="#" data-hover="Consultas">Consultas</a></li>
+        <li><a href="#" data-hover="------">------</a></li>
+        <li>Olá, <?php echo $_SESSION['nome'];?></li>
+        <li><img src="Imagens/icone_desconectar.png" height="40" alt="SAIR" title="SAIR" onclick="logout()"></li>
         
-        <div class="itens_menu">
-            <div class="item_logo">
-                <img src="Imagens/produto_logo.png" alt="Catálogo">
-            </div>
-            <div class="item_text">
-                Catálogo
-            </div>
-        </div>
-        <div class="itens_menu">
-            <div class="item_logo">
-                <img src="Imagens/conteudo_logo.png" alt="Conteúdo">
-            </div>
-            <div class="item_text">
-                Conteúdo
-            </div>
-        </div>
-    </div-->
+    </ul>
 </nav>

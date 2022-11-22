@@ -177,9 +177,9 @@
             $nome = "";
 
             if($resultSet = $stm->fetch()){
-
+                
                 $nome = $resultSet["nome"];
-                $_SESSION['idMedico'] = $resultSet["id_medico"];
+                $_SESSION['idMedico'] = $resultSet["id"];
 
             }
 

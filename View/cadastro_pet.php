@@ -11,14 +11,14 @@
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
       } else {
-        echo "File is not an image.";
+        echo "Arquivo não é uma imagem.";
         $uploadOk = 0;
       }
         
        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+        echo "Arquivo: ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " upload OK.";
       } else {
-        echo "Sorry, there was an error uploading your file.";
+        echo "Erro ao fazer o Upload.";
       }
     }
 

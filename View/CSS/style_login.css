@@ -1,0 +1,221 @@
+@media screen and (min-device-width:521px) {
+  
+    /** float container */
+   .float-container {
+       box-sizing: border-box;
+       margin-bottom: 8px;
+       padding: 0 8px;
+       position: relative;
+       width: 300px;
+       
+   }
+
+   .float-container input{
+       /*border: none;
+       border: 0px solid #fff;*/
+       width: 100%;
+       font-size: 16px;
+       outline: 0;
+       padding: 16px 0px 10px;
+       border:none;
+       border-bottom: 1px solid #1c6971;
+       font-family: monospace;
+       margin-top: 10px;
+       background-color: #ffffff0d;
+   }
+   .float-container label{
+       font-size: 16px;
+       position: absolute;
+       transform-origin: top left;
+       transform: translate(0, 16px) scale(1); 
+       transition: all .1s ease-in-out;
+       font-weight: 600;
+       color: #1c6971;
+       font-family: monospace;
+   }
+
+   .float-container.active label{
+       transform: translate(0, 4px) scale(.75);
+   }
+   
+   body{
+        margin: 0px;
+        background-image: url("../Imagens/Background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-attachment: fixed;
+    }
+   
+   #left{
+       height: 100%;
+       width:70%;
+   }
+   #right{
+       height: 100%;
+       width:30%;
+       background-color: #ffffffd1;
+       float: right;
+   }
+   
+   #logo{
+       height: 100px;
+       width: 60%;
+       margin-left: auto;
+       margin-right: auto;
+       background-image: url('../imagens/Logo-FAST-2017.png');
+       background-size:contain;
+       background-repeat: no-repeat;
+       background-position: center;
+       margin-top: 15%;
+       
+   }
+   
+   #inputs{
+       width: 300px;
+       text-align: center;
+       margin:auto;
+       margin-top: 5%;
+       
+   }
+      
+   input[type='submit']{
+       height: 7%;
+       width: 30%;
+       font-size: 100%;
+       margin-top: 30px;
+       right: auto;
+       text-decoration: none;
+       color: #fff;
+       background-color: #26a69a;
+       text-align: center;
+       letter-spacing: .5px;
+       position: relative;
+       cursor: pointer;
+       overflow: hidden;
+       vertical-align: middle;
+       z-index: 1;
+       -webkit-transition: .3s ease-out;
+       transition: .3s ease-out;
+       border: none;
+       border-radius: 2px;
+       height: 36px;
+       line-height: 36px;
+       padding: 0 16px;
+       text-transform: uppercase;
+       margin-left: 50%;
+       background-color: #0089c1;
+   }
+   
+   #footer{
+       width: 100%;
+       height: 50px;
+       margin-top: 50%;
+       font-family: monospace;
+       text-align: center;
+   }
+   
+}
+
+@media screen and (min-device-width:200px) and (max-device-width:520px) {
+  
+   body{
+       background-image: url("../Imagens/Background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-attachment: fixed;
+       background-position: center top;
+   }
+   
+   #left{
+       display: none;
+   }
+   #right{
+       height: 100%;
+       width:100%;
+       background-color: #ffffff7d;
+   }
+   
+   #logo{
+       height: 30%;
+       width: 70%;
+       margin-left: auto;
+       margin-right: auto;
+       background-image: url('../imagens/Logo-FAST-2017.png');
+       background-size:contain;
+       background-repeat: no-repeat;
+       background-position: center;
+       
+   }
+   
+   #inputs{
+       width: 100%;
+       height: 40%;
+       text-align: center;
+       margin-left: auto;
+       margin-right: auto;
+       
+   }
+   
+   .inputs{
+       height: 7%;
+       width: 80%;
+       margin-top: 20px;
+       margin-left: auto;
+       margin-right: auto;
+       font-size: 50px;
+   }
+    
+    label{
+        height: 1%;
+        width: 20%;
+        margin-top: 5%;
+        font-size: 40px;
+        float: left;
+        text-transform: uppercase;
+    }
+    
+    input[type='text'], input[type='password']{
+        height: 20%;
+        width: 90%;
+        margin-top: 5%;
+        font-size: 40px;
+        border-radius: 25px;
+    }
+   
+   input[type='submit']{
+       height: 20%;
+       width: 90%;
+       font-size: 45px;
+       margin-top: 30px;
+       right: auto;
+       text-decoration: none;
+       color: #fff;
+       background-color: #26a69a;
+       text-align: center;
+       letter-spacing: .5px;
+       position: relative;
+       cursor: pointer;
+       overflow: hidden;
+       -webkit-user-select: none;
+       -moz-user-select: none;
+       -ms-user-select: none;
+       user-select: none;
+       -webkit-tap-highlight-color: transparent;
+       vertical-align: middle;
+       z-index: 1;
+       -webkit-transition: .3s ease-out;
+       transition: .3s ease-out;
+       border: none;
+       border-radius: 2px;
+       line-height: 36px;
+       padding: 0 16px;
+       text-transform: uppercase;
+       border-radius: 25px;
+   }
+   
+    #footer{
+        font-size: 25px;
+        text-align: center;
+    }
+
+}

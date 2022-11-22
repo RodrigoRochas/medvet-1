@@ -1,79 +1,105 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <link type="text/css" rel="stylesheet" href="View/CSS/style_index.css">
-        <script src="View/JavaScript/jquery-3.3.1.js" charset="utf-8"></script>
-        <script>
-            $(document).ready(function() {
-                $('#btn_login').on('click', function(){
-                        $('#novo_usuario').css("display", "none");
-                        $('#login').css("display", "block");
-
-                });
-                 $('#btn_n_usuario').on('click', function(){
-                        $('#novo_usuario').css("display", "block");
-                        $('#login').css("display", "none");
-
-                });
-            });
-
-            function autenticar(){
-                $.post("router.php", {
-                    email: $("#txt_email").val(),
-                    senha: $("#txt_senha").val(),
-                    classe: "funcionario",
-                    acao: "autenticar"
-                }).done(function(dados){
-                    // alert(dados)
-                    if(dados != ""){
-                        document.location.href = "http://localhost/medvet/View/adm_medico.php";
-                    } else {
-                        alert("Erro na Autenticação.");
-                    }
-                });
-            }
-            $(document).ready(function(){
-                $.post("router.php", {
-                    classe: "medico",
-                    acao: "matarSessao"
-                });
-            });
-        </script>
         <title>Medvet | Autenticação</title>
+        <link type="text/css" rel="stylesheet" href="View/CSS/style_login.css">
+        <script src="View/JavaScript/jquery-3.3.1.js" charset="utf-8"></script>
     </head>
     <body>
-        <main>
-            <div id='esquerda'></div>
-            <div id='direita'>
-                <div id="boas_vindas">
-                    <h1> MedVet</h1>
-                    <p>Bem vindo ao MedVet</p>
-                </div>
-                <div id='form'>
-                    <div id="novo_usuario">
-                        <p>NOVO USUARIO</p>
-                        <input type="email" placeholder="EMAIL">
-                        <input type="password" placeholder="SENHA">
-                        <input type="password" placeholder="CONFIRMA SENHA">
-                    </div>
-                    <div id="login">
-                        <p>LOGIN</p>
-                        <input type="email" id="txt_email" placeholder="USUARIO">
-                        <input type="password"  id="txt_senha" placeholder="SENHA">
-                    </div>
-                </div>
-                <div id='butons'>
-                    <button id="btn_login" type="submit">
-                        LOGIN
-                    </button>
-                    <input id="btn_n_usuario" type="submit" value="Novo Usuário">
-                </div>
-                <footer>
-                    Autores:<br>
-                    Todos os Direitos reservados
-                </footer>
+        
+        <div id="left" ></div>
+        <div id="right">
+            <div id="logo">
+
             </div>
-        </main>
+                <div id="inputs">
+                    <div id="floatContainer1" class="float-container">
+                        <label for="floatField1">Usuário</label>
+                        <input type="text" id="floatField1">
+                    </div>
+                    <div id="floatContainer2" class="float-container">
+                        <label for="floatField2">Senha</label>
+                        <input type="password" id="floatField2" >
+                    </div>
+                    <input type="submit" value="Login" onclick="autenticar()">
+
+                </div>
+            
+            <div id="footer">
+                MEDVET - Todos os Direitos reservados.<br>
+                www.medvet.com.br | Ouvidoria 11 4858-0396
+            </div>
+        </div>
     </body>
+    <script>
+            
+        const FloatLabel = (() => {
+  
+          // add active class and placeholder 
+          const handleFocus = (e) => {
+            const target = e.target;
+            target.parentNode.classList.add('active');
+            //target.setAttribute('placeholder', target.getAttribute('data-placeholder'));
+          };
+
+          // remove active class and placeholder
+          const handleBlur = (e) => {
+            const target = e.target;
+            if(!target.value) {
+              target.parentNode.classList.remove('active');
+            }
+            target.removeAttribute('placeholder');    
+          };  
+
+          // register events
+          const bindEvents = (element) => {
+            const floatField = element.querySelector('input');
+            floatField.addEventListener('focus', handleFocus);
+            floatField.addEventListener('blur', handleBlur);    
+          };
+
+          // get DOM elements
+          const init = () => {
+            const floatContainers = document.querySelectorAll('.float-container');
+
+            floatContainers.forEach((element) => {
+              if (element.querySelector('input').value) {
+                  element.classList.add('active');
+              }      
+
+              bindEvents(element);
+            });
+          };
+
+          return {
+            init: init
+          };
+        })();
+
+        FloatLabel.init();
+
+        function autenticar(){
+            $.post("router.php", {
+                
+                classe: "medico",
+                acao: "autenticar",
+                email: $("#floatField1").val(),
+                senha: $("#floatField2").val()
+            }).done(function(dados){
+                console.log(dados);
+                if(dados == " nenhum registro encontrado"){
+                    alert("Erro na Autenticação. Nenhum registro encontrado");
+                } else {
+                    document.location.href = "http://localhost/medvet/View/adm_pet.php";
+                }
+            });
+        }
+        $(document).ready(function(){
+            $.post("router.php", {
+                classe: "medico",
+                acao: "matarSessao"
+            });
+        });
+        </script>
 </html>

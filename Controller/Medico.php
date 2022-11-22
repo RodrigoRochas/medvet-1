@@ -132,10 +132,10 @@
 
         public function autenticar(){
 
-            $funcionarioDAO = new FuncionarioDAO();
+            $medicoDAO = new MedicoDAO();
 
-            $nome = $funcionarioDAO->autenticar($_POST["email"], $_POST["senha"]);
-
+            $nome = $medicoDAO->autenticar($_POST["email"], $_POST["senha"]);
+            
             $_SESSION["nome"] = $nome;
 
             echo($nome);

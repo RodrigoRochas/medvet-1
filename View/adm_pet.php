@@ -11,7 +11,7 @@
             
             $(document).ready(function(){
 
-                obterTodos();
+//                  obterTodos();
 
             });
         </script>
@@ -21,12 +21,13 @@
         <div id="main">
             <div id="main_content">
                 <?php require_once("menu.php") ?>
+                
                 <div id="content">
                     <div class="title_content" style="float:none;">
                         Lista de Pets
                     </div>                    
                     <a href="cadastro_pet.php">
-                        <button style="background-color: #28a745 border-color: #28a745;padding: 20px 60px;margin-left: 10px;margin-bottom: 10px;font-size: 20pt;border-radius: 10px; cursor: pointer;" >Cadastrar</button>
+                        <button style="background-color: #28a745 border-color: #28a745;padding: 10px 60px;margin-left: 10px;margin-bottom: 10px;font-size: 20pt;border-radius: 10px; cursor: pointer;" >Cadastrar</button>
                     </a>
                     <table id="table_content" style="background-color: #a0dbd3;">
                     </table>

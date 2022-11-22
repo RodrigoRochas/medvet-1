@@ -160,7 +160,7 @@
         }
 
         public function autenticar($email, $senha){
-            session_start();
+//            session_start();
             $conexao = ConexaoBanco::obterConexao();
 
             $SQL = "SELECT nome, id FROM tbl_medico WHERE email = ? AND senha = ?";
@@ -179,8 +179,11 @@
             if($resultSet = $stm->fetch()){
 
                 $nome = $resultSet["nome"];
-                $_SESSION['idMedico'] = $resultSet["id_medico"];
+                $_SESSION['idMedico'] = $resultSet["id"];
+                $_SESSION['nome'] = $resultSet["nome"];
 
+            }else{
+                return 'nenhum registro encontrado';
             }
 
             return $nome;

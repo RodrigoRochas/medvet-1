@@ -170,6 +170,19 @@ function remover(idMedico){
 
 }
 
+function logout(){
+    alert('aqui')
+     $.post(rota, {
+
+        acao:"matarSessao"
+        
+    }).done(function(dados){
+        document.location.href = "http://localhost/medvet";
+
+    });
+
+}
+
 $(document).ready(function(){
 
     // obterAutenticacao();

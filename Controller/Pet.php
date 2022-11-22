@@ -81,6 +81,7 @@
                             
                             <img src="Imagens/excluir.png" alt="Excluir Pet" style="width:40px;height:40px;margin-left:10px;margin:0px;" onclick="remover('.$pet->getId().')">
                         </div>
+                        <p style="margin-top:30px;margin-left:23px;color:white;">'.$pet->getNome().'</p>
                     </div>');
                 
 //                echo('<tr>');

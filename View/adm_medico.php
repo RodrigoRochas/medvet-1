@@ -26,4 +26,8 @@
         </div>
         <?php require_once("rodape.php") ?>
     </body>
+    <?php
+    echo $_SESSION['nome'];
+
+?>
 </html>

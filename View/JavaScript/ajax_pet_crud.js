@@ -40,10 +40,10 @@ function inserir(){
 
     }).done(function(dados){
 
-        alert(dados);
-//        alert("CADASTRADO COM SUCESSO");
+//        alert(dados);
+        alert("CADASTRADO COM SUCESSO");
 
-        obterTodos();
+//        obterTodos();
 
     });
 
@@ -135,7 +135,8 @@ function obterUm(){
         $("#txt_dt_nasc").val(pet["data_nascimento"]),
         $("#slt_cliente").val(pet["idCliente"]),
         $("#txt_imagem").val(pet["caminho_imagem"]),
-        $("#pet").attr("src","uploads/"+pet["caminho_imagem"]),
+            $("#my_image").attr("src","second.jpg")
+        document.getElementById("pet").src="uploads/"+pet["caminho_imagem"];
         $("#pet").val(pet["caminho_imagem"]),
         
         
@@ -188,6 +189,20 @@ function remover(idPet){
     }).done(function(dados){
         alert('REMOVIDO COM SUCESSO!!')
         obterTodos();
+
+    });
+
+}
+
+
+function logout(){
+    
+     $.post(rota, {
+
+        acao:"matarSessao"
+        
+    }).done(function(dados){
+        document.location.href = "http://localhost/medvet";
 
     });
 
