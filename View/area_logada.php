@@ -15,16 +15,15 @@
     
     <title>Document</title>
 </head>
-<body>
-
-    <?php require_once("cabecalho.php")?> 
+<body>        
+    <?php session_start()?>
     <div id="main">
         <div id="main_content">
             <?php require_once("menu.php") ?>
         </div>
     </div>  
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 80%;">
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
