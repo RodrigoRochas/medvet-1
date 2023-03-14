@@ -11,7 +11,7 @@
         </div>
         <div id="login">
             <div id="login_text">
-                Bem vindo <br>
+                <!-- Bem vindo <br> -->
                 <?=@$_SESSION["nome"]?>
             </div>
             <a href="../index.php">

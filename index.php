@@ -91,7 +91,7 @@
                 if(dados == " nenhum registro encontrado"){
                     alert("Erro na Autenticação. Nenhum registro encontrado");
                 } else {
-                    document.location.href = "http://localhost/medvet/View/adm_pet.php";
+                    document.location.href="http://localhost/medvet/View/area_logada.php";
                 }
             });
         }
@@ -101,5 +101,5 @@
                 acao: "matarSessao"
             });
         });
-        </script>
+        </script>   
 </html>
