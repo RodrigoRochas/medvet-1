@@ -7,6 +7,8 @@
 
     <link type="text/css" rel="stylesheet" href="CSS/meu_perfil.css">
     <link type="text/css" rel="stylesheet" href="CSS/style.css">
+    <link type="text/css" rel="stylesheet" href="CSS/feedback.css">
+
     <link type="text/css" rel="stylesheet" href="CSS/adm_pet_style.css">
     <script src="JavaScript/jquery-3.3.1.js" charset="utf-8"></script>
     <script src="JavaScript/ajax_pet_crud.js" charset="utf-8"></script>
@@ -34,15 +36,15 @@
         <!-- Slides -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="./Imagens/car3.png" alt="Imagem 1">
+                <img src="./Imagens/vet2.jpg" alt="Imagem 1">
             </div>
 
             <div class="carousel-item">
-                <img src="./Imagens/car5.png" alt="Imagem 2">
+                <img src="./Imagens/vet3.jpg" alt="Imagem 2">
             </div>
 
             <div class="carousel-item">
-                <img src="./Imagens/car6.png" alt="Imagem 3">
+                <img src="./Imagens/vet5.jpg" alt="Imagem 3">
             </div>
         </div>
 
@@ -55,6 +57,56 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Próximo</span>
         </a>
+    </div>
+
+    <div id="container">
+        <div id="parte_escrita">
+            <p style="color: ; font-size: 30px;">DEPOIMENTOS DE</p>
+            <p style="color: ; font-size: 50px; font-weight: bold;">
+            quem já foi atendido por você
+            </p>
+        </div>
+
+        <div id="card_depoimento">
+            <p>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb</p>
+            <div class="foto">
+                <div class="nome">
+                    <p>Ronaldo Prass</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="card_depoimento">
+            <p>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb</p>
+            <div class="foto">
+                <div class="nome">
+                    <p>Luiz Henrique</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="card_depoimento">
+            <p>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb</p>
+            <div class="foto">
+                <div class="nome">
+                    <p>Michael Antonio</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="card_depoimento">
+            <p>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb<br>egdfkwbefkbwefbuiwerbidjfbhkwsefb</p>
+            <div class="foto">
+                <div class="nome">
+                    <p>Augusto Cavalt</p>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 
