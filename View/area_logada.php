@@ -17,7 +17,12 @@
     
     <title>Document</title>
 </head>
-<body>        
+<body>  
+    <a href="./blog.php">
+        <button href="./blog.php" type="button" id="id_float_btn" class="btn pmd-btn-fab btn-warning pmd-ripple-effect pmd-btn-raised">
+            <i href="./blog.php" class="material-icons pmd-sm">Emergência</i>
+        </button>
+    </a>      
     <?php session_start()?>
     <div id="main">
         <div id="main_content">
@@ -61,9 +66,9 @@
 
     <div id="container">
         <div id="parte_escrita">
-            <p style="color: ; font-size: 30px;">DEPOIMENTOS DE</p>
+            <p style="color: ; font-size: 30px;">Historico</p>
             <p style="color: ; font-size: 50px; font-weight: bold;">
-            quem já foi atendido por você
+            de seus atendimentos
             </p>
         </div>
 
